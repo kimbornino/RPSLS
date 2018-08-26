@@ -9,105 +9,152 @@ namespace RPSLS
     class Game
     {
         //member variables
-        public string user1Weapon;
-        public string user2Weapon;
+        public Player player1;
+        public Player player2;
+        public string numberOfPlayers;
+        public List<string> gestureList;
+        public string typeOfGame;
+        public bool player2Winner;
+        public bool player1Winner;
+
         //constructor 
-        // needs to take in arguments from player 1 and player 2
-        
-    //methods
-        public void GetUserChoice()
+        public Game()
         {
-            Console.WriteLine("What weaopon will you throw?");
-            string user1Weapon = Console.ReadLine();
+            gestureList = new List<string> { "rock", "paper", "scissors", "lizard", "spock" };
         }
+        //methods
+
+        public void GetPlayers()
+        {
+            Console.WriteLine("Type 1 for a one player game.  Type 2 for a two player game");
+            typeOfGame = Console.ReadLine();
+
+            if (numberOfPlayers == "1")
+            {
+                player1 = new Player();
+                player2 = new Computer();
+            }
+            else {
+                player1 = new Player();
+                player2 = new Player();
+            }
+        }
+
+        public void GetPlayerChoices()
+        {
+            Console.WriteLine("Player 1: What weaopon will you throw?");
+            player1.weaponChoice = Console.ReadLine();
+
+            Console.WriteLine("Player 2: What weaopn will you throw?");
+            player2.weaponChoice = Console.ReadLine();
+        }
+
         public void NoCountTie()
         {
-        if (user1Weapon == user2Weapon)
+            if (player1.weaponChoice == player2.weaponChoice)
             {
                 Console.WriteLine("It's a tie!");
             }
         }
-        public void Compare()
+        public bool Compare()
         {
+            if (player1.weaponChoice == "Rock")
+                if (player1.weaponChoice == "paper" || player2.weaponChoice == "spock")
+                {
+                    player2Winner = true;
+                    Console.WriteLine("Player 2 wins!");
+                }
+                else if (player2.weaponChoice == "scissors" || player1.weaponChoice == "lizard")
+                {
+                    player1Winner = true;
+                    Console.WriteLine("Player 1 wins!");
+                }
+                else
+                {
+                    Console.WriteLine("Entry invalid.  Please try again");
+                }
+            return player1Winner;
+            //new scenario
+            if (player1.weaponChoice == "paper")
+                if (player2.weaponChoice == "scissors" || player2.weaponChoice == "lizard")
+                {
+                    player2Winner = true;
+                    Console.WriteLine("player 2 wins!");
+                }
+                else if (player2.weaponChoice == "spock" || player1.weaponChoice == "rock")
+                {
+                    player1Winner = true;
+                    Console.WriteLine("user 1 wins!");
+                }
+                else
+                {
+                    Console.WriteLine("Entry invalid.  Please try again");
+                }
+            return  player1Winner;
 
-            if (user1Weapon == "Rock")
-                if (user2Weapon == "paper" || user2Weapon == "spock")
-                {
-                    Console.WriteLine("user 2 wins!");
-                    //add to counter
-                }
-                else if (user2Weapon == "scissors" || user1Weapon == "lizard")
-                {
-                    Console.WriteLine("user 1 wins!");
-                }
-                else
-                {
-                    Console.WriteLine("Entry invalid.  Please try again");
-                }
 
             //new scenario
-            if (user1Weapon == "paper")
-                if (user2Weapon == "scissors" || user2Weapon == "lizard")
+            if (player1.weaponChoice == "scissors")
+                if (player2.weaponChoice == "rock" || player2.weaponChoice == "spock")
                 {
-                    Console.WriteLine("user 2 wins!");
-                    //add to counter
+                    player2Winner = true;
+                    Console.WriteLine("Player 2 wins!");
+                    
                 }
-                else if (user2Weapon == "spock" || user1Weapon == "rock")
+                else if (player2.weaponChoice == "paper" || player1.weaponChoice == "lizard")
                 {
-                    Console.WriteLine("user 1 wins!");
+                    player1Winner = true;
+                    Console.WriteLine("Player 1 wins!");
                 }
                 else
                 {
                     Console.WriteLine("Entry invalid.  Please try again");
                 }
-
+            return player1Winner;
             //new scenario
-            if (user1Weapon == "scissors")
-                if (user2Weapon == "rock" || user2Weapon == "spock")
+            if (player1.weaponChoice == "spock")
+                if (player2.weaponChoice == "paper" || player2.weaponChoice == "lizard")
                 {
-                    Console.WriteLine("user 2 wins!");
+                    player2Winner = true;
+                    Console.WriteLine("Player 2 wins!");
                     //add to counter
                 }
-                else if (user2Weapon == "paper" || user1Weapon == "lizard")
+                else if (player2.weaponChoice == "rock" || player1.weaponChoice == "scissors")
                 {
-                    Console.WriteLine("user 1 wins!");
+                    player1Winner = true;
+                    Console.WriteLine("Player 1 wins!");
                 }
                 else
                 {
                     Console.WriteLine("Entry invalid.  Please try again");
                 }
+            return player1Winner;
             //new scenario
-            if (user1Weapon == "spock")
-                if (user2Weapon == "paper" || user2Weapon == "lizard")
+            if (player1.weaponChoice == "lizard")
+                if (player2.weaponChoice == "scissors" || player2.weaponChoice == "rock")
                 {
-                    Console.WriteLine("user 2 wins!");
+                    player2Winner = true;
+                    Console.WriteLine("Player 2 wins!");
                     //add to counter
                 }
-                else if (user2Weapon == "rock" || user1Weapon == "scissors")
+                else if (player2.weaponChoice == "paper" || player1.weaponChoice == "spock")
                 {
-                    Console.WriteLine("user 1 wins!");
+                    player1Winner = true;
+                    Console.WriteLine("Player 1 wins!");
                 }
                 else
                 {
                     Console.WriteLine("Entry invalid.  Please try again");
                 }
-            //new scenario
-            if (user1Weapon == "lizard")
-                if (user2Weapon == "scissors" || user2Weapon == "rock")
-                {
-                    Console.WriteLine("user 2 wins!");
-                    //add to counter
-                }
-                else if (user2Weapon == "paper" || user1Weapon == "spock")
-                {
-                    Console.WriteLine("user 1 wins!");
-                }
-                else
-                {
-                    Console.WriteLine("Entry invalid.  Please try again");
-                }
+            return player1Winner;
 
         }
+        public void RunGame() {
+            GetPlayers();
+            GetPlayerChoices();
+            Compare();
+        }
+
     }
 }
     
