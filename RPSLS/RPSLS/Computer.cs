@@ -4,10 +4,14 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace RPSLS
-{
-    class Computer : Player
+//namespace RPSLS
+/*{
+    class Computer : Player();
     {
-
+        public Computer(str)
+        {
+            
+        }
     }
 }
+*/
