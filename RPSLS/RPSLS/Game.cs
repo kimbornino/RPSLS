@@ -151,37 +151,44 @@ namespace RPSLS
                     Console.WriteLine("Entry invalid.  Please try again");
                 }
             }
-            
+
             return winner;
         }
-        public void GameOver()
-        {
-            
-        }
 
-        //create functionality for when we need to go back into game without resetting players "RunRound"
-        public void RunGame() {
-            GetPlayers();
+        public void RunRound()
+        {
             GetPlayerChoices();
             Player roundWinner = Compare();
             roundWinner.IncrementScore();
 
             if (player1.playerScore == 2)
             {
-                Console.WriteLine("Player 1 has won 2 games!!!!");
+                Console.WriteLine("Player 1 has won two rounds.  Player 1 is the winner of the game");
             }
             if (player2.playerScore == 2)
             {
-                Console.WriteLine("Player 2 has won 2 games!!!");
+                Console.WriteLine("Player 2 has won two rounds.  Player 2 is the winner of the game");
             }
             else
             {
+                RunRound();
                 RunGame();
-            }
-
+            }  
         }
-
+        //create functionality for when we need to go back into game without resetting players "RunRound"
+        public void RunGame()
+        {
+            GetPlayers();
+            //GetRules();
+            RunRound();
+        }
     }
 }
+
+            
+
+        
+
+
     
 

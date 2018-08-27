@@ -26,7 +26,7 @@ namespace RPSLS
 
         public void MakePlayerChoice()
         {
-            Console.WriteLine("What weapon will" + playersName + "throw?");
+            Console.WriteLine("What weapon will " + playersName + " throw?");
             weaponChoice = Console.ReadLine();
 
             // Console.WriteLine("Player 2: What weapon will you throw?");

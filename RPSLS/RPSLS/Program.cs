@@ -10,6 +10,7 @@ namespace RPSLS
     {
         static void Main(string[] args)
         {
+            Rules RPSLSRules = new Rules();
             Game RPSLS = new Game();
 
             RPSLS.RunGame();

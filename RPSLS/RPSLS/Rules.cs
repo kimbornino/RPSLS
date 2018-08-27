@@ -8,9 +8,10 @@ namespace RPSLS
 {
     class Rules
     {
-        public void getRules()
+        public void GetRules()
         {
             Console.WriteLine(
+                "Here is your reference for what each gesture does:" +
                 "Rock crushes Scissors" +
                 "Scissors cuts Paper" +
                 "Paper covers Rock" +
