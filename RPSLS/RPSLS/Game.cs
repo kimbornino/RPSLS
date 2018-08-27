@@ -34,10 +34,15 @@ namespace RPSLS
                 player1 = new Player("Player 1");
                 player2 = new Computer("Computer");
             }
-            else
+            else if (typeOfGame == "2") 
             {
                 player1 = new Player("Player 1");
                 player2 = new Player("Player 2");
+            }
+            else
+            {
+                Console.WriteLine("Invalid. Please try your number entry again.");
+                GetPlayers();
             }
         }
 
