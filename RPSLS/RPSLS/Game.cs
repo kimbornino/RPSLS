@@ -167,15 +167,16 @@ namespace RPSLS
             if (player1.playerScore == 2)
             {
                 Console.WriteLine("Player 1 has won two rounds.  Player 1 is the winner of the game");
+                RunGame();
             }
             if (player2.playerScore == 2)
             {
                 Console.WriteLine("Player 2 has won two rounds.  Player 2 is the winner of the game");
+                RunGame();
             }
             else
             {
                 RunRound();
-                RunGame();
             }  
         }
         //create functionality for when we need to go back into game without resetting players "RunRound"
