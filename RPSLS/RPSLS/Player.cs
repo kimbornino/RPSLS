@@ -6,7 +6,8 @@ using System.Threading.Tasks;
 
 namespace RPSLS
 {
-    class Player
+    //added the word "public"
+    public class Player
     {
         //member variables
         public string weaponChoice;
@@ -24,7 +25,7 @@ namespace RPSLS
             playersName = name;
         }
 
-        public void MakePlayerChoice()
+        public virtual void MakePlayerChoice()
         {
             Console.WriteLine("What weapon will " + playersName + " throw?");
             weaponChoice = Console.ReadLine();

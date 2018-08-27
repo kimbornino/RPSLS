@@ -13,14 +13,13 @@ namespace RPSLS
         public Player player2;
         public List<string> gestureList;
         public string typeOfGame;
-        public string numberOfPlayers;
-        //public bool player2Winner;
-        //public bool player1Winner;
+        public Rules rules;
 
         //constructor 
         public Game()
         {
             gestureList = new List<string> { "rock", "paper", "scissors", "lizard", "spock" };
+            rules = new Rules();
         }
         //methods
 
@@ -29,10 +28,10 @@ namespace RPSLS
             Console.WriteLine("Type 1 for a one player game.  Type 2 for a two player game");
             typeOfGame = Console.ReadLine();
 
-            if (numberOfPlayers == "1")
+            if (typeOfGame == "1")
             {
                 player1 = new Player("Player 1");
-                //player2 = new Computer("Computer");
+                player2 = new Computer("Computer");
             }
             else {
                 player1 = new Player("Player 1");
@@ -179,7 +178,7 @@ namespace RPSLS
         public void RunGame()
         {
             GetPlayers();
-            //GetRules();
+            rules.GetRules();
             RunRound();
         }
     }
