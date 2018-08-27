@@ -28,14 +28,14 @@ namespace RPSLS
         public virtual void MakePlayerChoice()
         {
             Console.WriteLine("What weapon will " + playersName + " throw?");
-            weaponChoice = Console.ReadLine();
+            weaponChoice = (Console.ReadLine()).ToLower();
+            //need to convert user input so capitalization doesn't matter
 
-            // Console.WriteLine("Player 2: What weapon will you throw?");
-            //player2.weaponChoice = Console.ReadLine();
         }
 
         public void IncrementScore()
         {
+
             {
 
                 playerScore = playerScore + 1;
