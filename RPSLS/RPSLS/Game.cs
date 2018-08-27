@@ -47,15 +47,14 @@ namespace RPSLS
             player2.MakePlayerChoice();
         }
 
-        public void IsTie()
+        public void CheckForTie()
         {
             if (player1.weaponChoice == player2.weaponChoice)
             {
                 Console.WriteLine("It's a tie!");
                 RunRound();
-               
             }
-        }
+        } 
         public Player Compare()
         {
             Player winner = null;
@@ -161,6 +160,7 @@ namespace RPSLS
         public void RunRound()
         {
             GetPlayerChoices();
+            CheckForTie();
             Player roundWinner = Compare();
             roundWinner.IncrementScore();
 
