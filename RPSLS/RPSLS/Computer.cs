@@ -8,13 +8,24 @@ namespace RPSLS
 {
     public class Computer : Player
     {
+        //just set = to null
         public string ComputerChoice;
+
         public Computer(string name) : base(name)
         { }
             public override void MakePlayerChoice()
         {
+            GetNumber();
+            GetComputerChoice();
             Console.WriteLine("The computer picked " + ComputerChoice);
-            weaponChoice = Console.ReadLine();
+            weaponChoice = ComputerChoice;
+        }
+
+        public int GetNumber()
+        {
+            Random rnd = new Random();
+            int ChoiceOfWeapon = rnd.Next(1, 6); // creates a number between 1 and 5
+            return ChoiceOfWeapon;
         }
         public void GetComputerChoice()
         {
@@ -40,7 +51,16 @@ namespace RPSLS
             {
                 ComputerChoice = "spock";
             }
-            //ComputerChoice = gestureList(ChoiceOfWeapon);
+        }
+
+        public void IncrementScore()
+            //do I even need this?
+        {
+            {
+
+                playerScore = playerScore + 1;
+            }
+
         }
     }
 }

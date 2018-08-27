@@ -14,6 +14,7 @@ namespace RPSLS
         public List<string> gestureList;
         public string typeOfGame;
         public Rules rules;
+       
 
         //constructor 
         public Game()
@@ -33,7 +34,8 @@ namespace RPSLS
                 player1 = new Player("Player 1");
                 player2 = new Computer("Computer");
             }
-            else {
+            else
+            {
                 player1 = new Player("Player 1");
                 player2 = new Player("Player 2");
             }
@@ -45,11 +47,13 @@ namespace RPSLS
             player2.MakePlayerChoice();
         }
 
-        public void NoCountTie()
+        public void IsTie()
         {
             if (player1.weaponChoice == player2.weaponChoice)
             {
                 Console.WriteLine("It's a tie!");
+                RunRound();
+               
             }
         }
         public Player Compare()
@@ -178,7 +182,7 @@ namespace RPSLS
         public void RunGame()
         {
             GetPlayers();
-            rules.GetRules();
+            //rules.GetRules();
             RunRound();
         }
     }

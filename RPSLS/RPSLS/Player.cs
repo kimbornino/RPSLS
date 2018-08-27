@@ -36,7 +36,10 @@ namespace RPSLS
 
         public void IncrementScore()
         {
-            playerScore = playerScore + 1;
+            {
+
+                playerScore = playerScore + 1;
+            }
 
         }
 
