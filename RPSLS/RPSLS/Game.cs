@@ -14,7 +14,7 @@ namespace RPSLS
         public List<string> gestureList;
         public string typeOfGame;
         public Rules rules;
-       
+
 
         //constructor 
         public Game()
@@ -26,7 +26,7 @@ namespace RPSLS
 
         public void GetPlayers()
         {
-            Console.WriteLine("Type 1 for a one player game.  Type 2 for a two player game");
+            Console.WriteLine("Type 1 for a one player game. (Human vs. Computer) \nType 2 for a two player game. (Human vs. Human");
             typeOfGame = Console.ReadLine();
 
             if (typeOfGame == "1")
@@ -34,14 +34,14 @@ namespace RPSLS
                 player1 = new Player("Player 1");
                 player2 = new Computer("Computer");
             }
-            else if (typeOfGame == "2") 
+            else if (typeOfGame == "2")
             {
                 player1 = new Player("Player 1");
                 player2 = new Player("Player 2");
             }
             else
             {
-                Console.WriteLine("Invalid. Please try your number entry again.");
+                Console.WriteLine("Invalid entry.  Please try again.");
                 GetPlayers();
             }
         }
@@ -59,7 +59,7 @@ namespace RPSLS
                 Console.WriteLine("It's a tie!");
                 RunRound();
             }
-        } 
+        }
         public Player Compare()
         {
             Player winner = null;
@@ -75,11 +75,6 @@ namespace RPSLS
                     winner = player1;
                     Console.WriteLine("Player 1 wins!");
                 }
-                else
-                {
-                    Console.WriteLine("Entry invalid.  Please try again");
-
-                }
             }
             //new scenario
             if (player1.weaponChoice == "paper")
@@ -93,10 +88,6 @@ namespace RPSLS
                 {
                     winner = player1;
                     Console.WriteLine("user 1 wins!");
-                }
-                else
-                {
-                    Console.WriteLine("Entry invalid.  Please try again");
                 }
             }
 
@@ -114,10 +105,6 @@ namespace RPSLS
                     winner = player1;
                     Console.WriteLine("Player 1 wins!");
                 }
-                else
-                {
-                    Console.WriteLine("Entry invalid.  Please try again");
-                }
             }
 
             //new scenario
@@ -127,16 +114,11 @@ namespace RPSLS
                 {
                     winner = player2;
                     Console.WriteLine("Player 2 wins!");
-                    //add to counter
                 }
                 else if (player2.weaponChoice == "rock" || player2.weaponChoice == "scissors")
                 {
                     winner = player2;
                     Console.WriteLine("Player 1 wins!");
-                }
-                else
-                {
-                    Console.WriteLine("Entry invalid.  Please try again");
                 }
             }
             //new scenario
@@ -146,22 +128,24 @@ namespace RPSLS
                 {
                     winner = player2;
                     Console.WriteLine("Player 2 wins!");
-                    //add to counter
                 }
                 else if (player2.weaponChoice == "paper" || player2.weaponChoice == "spock")
                 {
                     winner = player1;
                     Console.WriteLine("Player 1 wins!");
                 }
-                else
-                {
-                    Console.WriteLine("Entry invalid.  Please try again");
-                }
             }
+            //else
+            //{
+                //winner = null;
+                //Console.WriteLine("Invalid Entry. Please try again.");
+                //GetPlayerChoices();
 
+            //}
             return winner;
         }
 
+            
         public void RunRound()
         {
             GetPlayerChoices();
@@ -187,8 +171,8 @@ namespace RPSLS
         //create functionality for when we need to go back into game without resetting players "RunRound"
         public void RunGame()
         {
+            rules.GetRules();
             GetPlayers();
-            //rules.GetRules();
             RunRound();
         }
     }

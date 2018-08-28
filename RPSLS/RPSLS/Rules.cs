@@ -11,17 +11,17 @@ namespace RPSLS
         public void GetRules()
         {
             Console.WriteLine(
-                "Here is your reference for what each gesture does:" +
-                "Rock crushes Scissors" +
-                "Scissors cuts Paper" +
-                "Paper covers Rock" +
-                "Rock crushes Lizard" +
-                "Lizard poisons Spock" +
-                "Spock smashes Scissors" +
-                "Scissors decapitates Lizard" +
-                "Lizard eats Paper" +
-                "Paper disproves Spock" +
-                "Spock vaporizes Rock");
+                "Welcome to the game of Rock, Paper, Scissors, Lizard, Spock!! \n \n Here is your reference for what each gesture does: \n \n" +
+                "Rock crushes Scissors \n" +
+                "Scissors cuts Paper \n" +
+                "Paper covers Rock \n" +
+                "Rock crushes Lizard \n" +
+                "Lizard poisons Spock \n" +
+                "Spock smashes Scissors \n" +
+                "Scissors decapitates Lizard \n" +
+                "Lizard eats Paper \n" +
+                "Paper disproves Spock \n" +
+                "Spock vaporizes Rock \n");
         }
     }
 }

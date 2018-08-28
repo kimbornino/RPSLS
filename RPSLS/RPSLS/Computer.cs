@@ -8,18 +8,17 @@ namespace RPSLS
 {
     public class Computer : Player
     {
-        //just set = to null
         public string ComputerChoice;
 
         public Computer(string name) : base(name)
         { }
-            public override void MakePlayerChoice()
-        {
+         public override void MakePlayerChoice()
+         {
             GetNumber();
             GetComputerChoice();
             Console.WriteLine("The computer picked " + ComputerChoice);
             weaponChoice = ComputerChoice;
-        }
+         }
 
         public int GetNumber()
         {
@@ -36,7 +35,8 @@ namespace RPSLS
             {
                 ComputerChoice = "rock";
             }
-            else if (ChoiceOfWeapon == 2) {
+            else if (ChoiceOfWeapon == 2)
+            {
                 ComputerChoice = "paper";
             }
             else  if (ChoiceOfWeapon == 3)
@@ -51,16 +51,6 @@ namespace RPSLS
             {
                 ComputerChoice = "spock";
             }
-        }
-
-        public void IncrementScore()
-            //do I even need this?
-        {
-            {
-
-                playerScore = playerScore + 1;
-            }
-
         }
     }
 }

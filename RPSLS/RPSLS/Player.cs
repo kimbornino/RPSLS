@@ -6,20 +6,14 @@ using System.Threading.Tasks;
 
 namespace RPSLS
 {
-    //added the word "public"
     public class Player
     {
         //member variables
         public string weaponChoice;
         public int playerScore = 0;
         public string playersName;
+        public string tempChoice;
 
-        //gesture method
-        //public string userName;
-        // public List <weaponList()> 
-
-        //methods
-        //player1.score...
         public Player(string name)
         {
             playersName = name;
@@ -28,19 +22,25 @@ namespace RPSLS
         public virtual void MakePlayerChoice()
         {
             Console.WriteLine("What weapon will " + playersName + " throw?");
-            weaponChoice = (Console.ReadLine()).ToLower();
-            //need to convert user input so capitalization doesn't matter
+             weaponChoice = (Console.ReadLine()).ToLower();
 
+            //if choice invalid get new choice
+            if (weaponChoice == "rock" || weaponChoice == "paper" || weaponChoice == "scissors" || weaponChoice == "lizard" || weaponChoice == "spock")
+            {
+                Console.WriteLine("You threw " + weaponChoice);
+            }
+            else
+            {
+                Console.WriteLine("Invalid entry.  Please try again");
+                MakePlayerChoice();
+            }
         }
 
         public void IncrementScore()
         {
-
             {
-
                 playerScore = playerScore + 1;
             }
-
         }
 
     }
